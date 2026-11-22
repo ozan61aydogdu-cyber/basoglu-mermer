@@ -43,7 +43,7 @@ function App() {
   return (
     <>
       {splashVisible && <BrandSplash onComplete={finishSplash} />}
-      <BrowserRouter basename="/basoglu-mermer">
+      <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "") || "/"}>
         <Seo />
         <ScrollToTop />
         <Header />

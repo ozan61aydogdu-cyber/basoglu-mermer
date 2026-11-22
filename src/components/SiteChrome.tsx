@@ -129,7 +129,7 @@ export function Footer() {
           </div>
           <div className="footer-links footer-contact-links">
             <span>İLETİŞİM</span>
-            <a href="/image-credits.html">Görsel kaynakları</a>
+            <a href={`${import.meta.env.BASE_URL}image-credits.html`}>Görsel kaynakları</a>
             <a href={`tel:${business.phone}`}><Phone size={13} /> {business.phoneDisplay}</a>
             <a href={business.whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={13} /> WhatsApp</a>
             <a href={business.mapUrl} target="_blank" rel="noreferrer"><MapPin size={13} /> {business.address}</a>
