@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 const splashImages = [
-  "/images/products/marmara.jpg",
-  "/images/products/traverten.jpg",
-  "/images/products/star-galaxy.jpg",
+  `${import.meta.env.BASE_URL}images/products/marmara.jpg`,
+  `${import.meta.env.BASE_URL}images/products/traverten.jpg`,
+  `${import.meta.env.BASE_URL}images/products/star-galaxy.jpg`,
 ];
 
 export function BrandSplash({ onComplete }: { onComplete: () => void }) {
