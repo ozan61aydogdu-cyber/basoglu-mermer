@@ -15,10 +15,11 @@ import {
 
 const redirectPath = new URLSearchParams(window.location.search).get("p");
 if (redirectPath) {
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
   window.history.replaceState(
     null,
     "",
-    `/basoglu-mermer${redirectPath}${window.location.hash}`,
+    `${basePath}${redirectPath}${window.location.hash}`,
   );
 }
 
