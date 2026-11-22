@@ -13,6 +13,11 @@ export function normalizePathname(pathname: string) {
   return pathname.replace(/\/+$/, "") || "/";
 }
 
+export function canonicalPathname(pathname: string) {
+  const normalizedPath = normalizePathname(pathname);
+  return normalizedPath === "/" ? "/" : `${normalizedPath}/`;
+}
+
 export function getRouteMetadata(pathname: string): PageMetadata {
   const normalizedPath = normalizePathname(pathname);
   if (pageMeta[normalizedPath]) return pageMeta[normalizedPath];

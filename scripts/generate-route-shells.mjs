@@ -59,7 +59,7 @@ function replaceRequired(html, pattern, replacement, name) {
 
 for (const route of routes) {
   const page = routeMetadata(route);
-  const canonicalUrl = new URL(route, canonicalOrigin).toString();
+  const canonicalUrl = new URL(`${route}/`, canonicalOrigin).toString();
   let html = replaceRequired(
     template,
     /<title>[\s\S]*?<\/title>/i,

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { business, products } from "../data";
 import {
+  canonicalPathname,
   canonicalOrigin,
   getRouteMetadata,
   normalizePathname,
@@ -19,7 +20,7 @@ export function Seo() {
         description: `${product.name} doğal taş örneğini keşfedin. Ürün özellikleri, stok ve fiyat bilgisi için Başoğlu Mermer ile iletişime geçin.`,
       }
     : getRouteMetadata(normalizedPath);
-  const canonicalUrl = new URL(normalizedPath, canonicalOrigin).toString();
+  const canonicalUrl = new URL(canonicalPathname(pathname), canonicalOrigin).toString();
 
   useEffect(() => {
     document.title = meta.title;
