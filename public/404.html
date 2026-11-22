@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yönlendiriliyor | Başoğlu Mermer Sanayi</title>
+  </head>
+  <body>
+    <script>
+      const base = "/basoglu-mermer";
+      const path = window.location.pathname.startsWith(base)
+        ? window.location.pathname.slice(base.length)
+        : window.location.pathname;
+      window.location.replace(
+        base + "/?p=" + encodeURIComponent(path || "/") +
+        encodeURIComponent(window.location.search) +
+        window.location.hash
+      );
+    </script>
+  </body>
+</html>

@@ -13,6 +13,15 @@ import {
   ProductDetailPage,
 } from "./pages/Pages";
 
+const redirectPath = new URLSearchParams(window.location.search).get("p");
+if (redirectPath) {
+  window.history.replaceState(
+    null,
+    "",
+    `/basoglu-mermer${redirectPath}${window.location.hash}`,
+  );
+}
+
 function App() {
   const [splashVisible, setSplashVisible] = useState(() => {
     try {
