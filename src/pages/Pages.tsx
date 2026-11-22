@@ -139,42 +139,74 @@ function AboutPage() {
   return (
     <main className="route-page inner-page">
       <section className="page-banner page-banner-photo">
-        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=85" alt="Taş yüzeylerin kullanıldığı örnek mimari iç mekân" />
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=85" alt="Doğal taş ve modern mimariyi buluşturan temsilî iç mekân görseli" />
         <div className="page-banner-photo-shade" />
         <div className="content-width page-banner-content">
           <div className="breadcrumbs"><Link to="/">Ana Sayfa</Link><span>/</span><span>Hakkımızda</span></div>
           <span className="eyebrow"><span /> BAŞOĞLU MERMER SANAYİ</span>
-          <h1>Doğal taşta<br /><em>kalite ve özen.</em></h1>
-          <p>Doğal taşın kendine özgü karakterini, müşteri memnuniyeti ve estetik çözümlerle buluşturuyoruz.</p>
+          <h1>Doğal Taşın Mimarı,<br /><em>Güvenin Adresi.</em></h1>
+          <p>Mermer, granit ve traverten seçeneklerini; doğal dokunun karakterini ve estetik anlayışını gözeterek sunuyoruz.</p>
         </div>
       </section>
       <section className="about-story section-pad">
         <div className="content-width about-story-grid">
           <div className="about-story-copy reveal">
-            <span className="section-kicker">HAKKIMIZDA</span>
+            <span className="section-kicker">KURUMSAL</span>
             <h2 className="section-title">Başoğlu Mermer<br /><em>Sanayi</em></h2>
-            <p><strong>30 yılı aşkın deneyimiyle</strong> Başoğlu Mermer Sanayi, doğal taş sektöründe mermer, granit, traverten ve özel taş çözümlerinde kapsamlı bir hizmet anlayışı sunar.</p>
-            <p>İstanbul Sultangazi’de müşterilerimizin ihtiyaçlarını taşın renk, doku ve damar karakterine göre titizlikle değerlendirir; konut, otel, ticari yapı, mimari uygulama ve özel tasarım projeleri için güvenilir seçim ve profesyonel işçilik desteği sağlar.</p>
-            <p>Yurtiçi çalışmalarının yanı sıra yurt dışı işlerde ve uluslararası doğal taş tedarikinde edindiği deneyimle, plaka, kesim, yüzey işlemleri, uygulama ve teslimat süreçlerinde titiz, şeffaf ve müşteri odaklı bir yaklaşım benimser.</p>
-            <p>Her plakada oluşan doğal renk ve damar farkları göz önünde bulundurulur; doğru ürünün seçilmesi, uygun yüzey işlemesinin belirlenmesi ve uygulama detaylarının müşterimizle birlikte planlanması esastır.</p>
-            <a className="button button-dark" href={business.whatsapp} target="_blank" rel="noreferrer">Bize WhatsApp'tan ulaşın <ArrowUpRight size={16} /></a>
+            <p>Başoğlu Mermer Sanayi olarak mermer, granit ve traverten seçeneklerini doğal taşın kendine özgü renk ve dokusunu gözeterek sunuyoruz. Ürün seçimi ve uygulama ihtiyaçlarınız için bizimle iletişime geçebilirsiniz.</p>
+
+            <p>Her doğal taş plakasının renk, damar ve doku bakımından farklılık gösterebileceğini dikkate alıyor; seçenekleri projenizin ihtiyaçlarına göre değerlendirmenize yardımcı oluyoruz.</p>
+
+            <h3 className="about-sub-title">Doğal Taşta Kalite ve Estetik</h3>
+            <p>Taşın doğal görünümünü, kullanım alanını ve tercih edilen yüzey özelliklerini birlikte değerlendirerek ürün seçimine odaklanıyoruz.</p>
+
+            <p>Stok, ebat, yüzey seçeneği ve güncel fiyat bilgisi için doğrudan bize ulaşabilirsiniz.</p>
+
+            <a className="button button-dark" href={business.whatsapp} target="_blank" rel="noreferrer">Detaylı Bilgi ve Teklif Alın <ArrowUpRight size={16} /></a>
           </div>
-          <figure className="about-story-image reveal">
-            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=85" alt="Doğal taş görünümünde yüzey örneği" loading="lazy" />
-            <figcaption>Görsel temsilidir. Gerçek ürün dokusu plakaya göre değişebilir.</figcaption>
-          </figure>
+          <div className="about-stats-sidebar">
+            <div className="stat-card">
+              <strong>Mermer</strong>
+              <span>Doğal taş koleksiyonu</span>
+            </div>
+            <div className="stat-card">
+              <strong>Granit</strong>
+              <span>Ürün seçenekleri</span>
+            </div>
+            <div className="stat-card">
+              <strong>Traverten</strong>
+              <span>Doğal doku ve tonlar</span>
+            </div>
+            <figure className="about-story-image reveal">
+              <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=85" alt="Doğal taş uygulamasını gösteren temsilî iç mekân görseli" loading="lazy" />
+              <figcaption>Doğal taşta doku ve işçilik.</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
       <section className="about-values-band">
         <div className="content-width about-values-list">
-          {["Doğal Taş", "Kaliteli Ürün", "Özenli İşçilik", "Estetik Çözümler", "Müşteri Memnuniyeti"].map((item, index) => (
-            <div key={item}><span>0{index + 1}</span><strong>{item}</strong></div>
+          {[
+            { title: "Doğal Taş", desc: "Mermer, granit ve traverten seçeneklerini keşfedin." },
+            { title: "Estetik Yaklaşım", desc: "Taşın doğal renk ve damar yapısını öne çıkaran seçimler." },
+            { title: "Özenli İşçilik", desc: "Malzeme ve uygulama seçimini ihtiyaçlarınıza göre değerlendirin." },
+            { title: "Açık İletişim", desc: "Ürün, ebat, stok ve fiyat bilgisi için bize ulaşın." },
+            { title: "Müşteri Memnuniyeti", desc: "İhtiyacınıza uygun taşı birlikte değerlendirelim." }
+          ].map((item, index) => (
+            <div key={item.title} className="value-item">
+              <span>0{index + 1}</span>
+              <div>
+                <strong>{item.title}</strong>
+                <p>{item.desc}</p>
+              </div>
+            </div>
           ))}
         </div>
       </section>
     </main>
   );
 }
+
 
 function CatalogPage({ group }: { group: "marble" | "natural" }) {
   const { categorySlug } = useParams();

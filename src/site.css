@@ -163,6 +163,33 @@
 .about-values-list > div > span { color: var(--stone); font-size: 8px; }
 .about-values-list strong { font: 500 15px var(--serif); }
 
+/* Yeni Hakkımızda Sayfası Stilleri */
+.about-sub-title { margin: 32px 0 16px; font: 500 22px var(--serif); color: var(--charcoal); }
+.about-stats-sidebar { display: flex; flex-direction: column; gap: 20px; }
+.stat-card { padding: 24px; background: var(--ivory); border-left: 3px solid #85755e; display: flex; flex-direction: column; gap: 4px; }
+.stat-card strong { font: 500 32px var(--serif); color: var(--charcoal); }
+.stat-card span { font-size: 10px; color: #85755e; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.value-item { display: flex; gap: 20px; padding: 20px; border-left: 1px solid rgba(255,255,255,0.2); }
+.value-item span { font-size: 10px; color: #c9b89f; font-weight: 600; margin-top: 4px; }
+.value-item strong { display: block; font: 500 18px var(--serif); margin-bottom: 6px; }
+.value-item p { font-size: 11px; color: rgba(255,255,255,0.7); line-height: 1.6; margin: 0; }
+
+/* Mobil Görünürlük ve Düzen Garantisi */
+@media (max-width: 820px) {
+  .about-stats-sidebar { flex-direction: row; flex-wrap: wrap; margin-top: 20px; }
+  .stat-card { flex: 1 1 140px; }
+  .about-values-list { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .value-item { padding: 15px; gap: 15px; }
+}
+
+@media (max-width: 560px) {
+  .about-values-list { grid-template-columns: 1fr !important; }
+  .value-item { border-left: 2px solid rgba(255,255,255,0.2); }
+  .about-story-copy .button { width: 100%; text-align: center; justify-content: center; }
+}
+
+
+
 .applications-gallery { background: var(--paper); }
 .gallery-filter { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-bottom: 29px; padding-bottom: 15px; border-bottom: 1px solid var(--hairline); }
 .gallery-filter button { padding: 0 0 6px; border: 0; border-bottom: 1px solid transparent; color: #77716a; background: none; cursor: pointer; font-size: 9px; }
