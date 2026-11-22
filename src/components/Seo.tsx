@@ -4,6 +4,7 @@ import { business, products } from "../data";
 
 const defaultDescription =
   "Başoğlu Mermer Sanayi, Sultangazi İstanbul'da mermer ve doğal taş ürünleri ile uygulamalarını keşfedin.";
+const canonicalOrigin = "https://basoglumermer.com.tr";
 
 const pageMeta: Record<string, { title: string; description: string }> = {
   "/": { title: "Başoğlu Mermer Sanayi | İstanbul Mermer ve Doğal Taş", description: defaultDescription },
@@ -39,16 +40,23 @@ export function Seo() {
 
   useEffect(() => {
     const meta = getPageMeta(pathname);
+    const canonicalUrl = new URL(pathname, canonicalOrigin).toString();
     document.title = meta.title;
     document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description);
     document.querySelector('meta[property="og:title"]')?.setAttribute("content", meta.title);
     document.querySelector('meta[property="og:description"]')?.setAttribute("content", meta.description);
+    document.querySelector('meta[property="og:url"]')?.setAttribute("content", canonicalUrl);
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href", canonicalUrl);
   }, [pathname]);
 
+  const canonicalUrl = new URL(pathname, canonicalOrigin).toString();
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": `${canonicalOrigin}/#business`,
     name: business.name,
+    url: canonicalUrl,
+    logo: `${canonicalOrigin}/favicon-192.png`,
     telephone: business.phone,
     address: {
       "@type": "PostalAddress",
