@@ -14,6 +14,7 @@ const securityHeaders = {
 };
 
 export default defineConfig({
+  base: "/basoglu-mermer/",
   plugins: [react(), tailwindcss()],
   server: { headers: securityHeaders },
   preview: { headers: securityHeaders },

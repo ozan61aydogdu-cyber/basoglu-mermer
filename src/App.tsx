@@ -34,7 +34,7 @@ function App() {
   return (
     <>
       {splashVisible && <BrandSplash onComplete={finishSplash} />}
-      <BrowserRouter>
+      <BrowserRouter basename="/basoglu-mermer">
         <Seo />
         <ScrollToTop />
         <Header />
