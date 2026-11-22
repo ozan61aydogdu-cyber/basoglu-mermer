@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { BrandSplash } from "./components/BrandSplash";
 import { Footer, FloatingWhatsApp, Header } from "./components/SiteChrome";
@@ -21,6 +21,46 @@ if (redirectPath) {
     "",
     `${basePath}${redirectPath}${window.location.hash}`,
   );
+}
+
+function RevealObserver() {
+  useEffect(() => {
+    const selector = ".reveal:not(.is-visible)";
+    if (!("IntersectionObserver" in window)) {
+      document.querySelectorAll(".reveal").forEach((element) => {
+        element.classList.add("is-visible");
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: "0px 0px -24px 0px" });
+
+    const observeNode = (node: Node) => {
+      if (!(node instanceof Element)) return;
+      if (node.matches(selector)) observer.observe(node);
+      node.querySelectorAll(selector).forEach((element) => observer.observe(element));
+    };
+
+    document.querySelectorAll(selector).forEach((element) => observer.observe(element));
+    const mutations = new MutationObserver((records) => {
+      records.forEach((record) => record.addedNodes.forEach(observeNode));
+    });
+    mutations.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      mutations.disconnect();
+      observer.disconnect();
+    };
+  }, []);
+
+  return null;
 }
 
 function App() {
@@ -47,6 +87,7 @@ function App() {
       <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "") || "/"}>
         <Seo />
         <ScrollToTop />
+        <RevealObserver />
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />

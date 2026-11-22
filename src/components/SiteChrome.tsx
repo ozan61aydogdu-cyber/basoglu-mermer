@@ -82,7 +82,8 @@ export function Header() {
           onClick={() => setMenuOpen((open) => !open)}
           type="button"
         >
-          {menuOpen ? <X size={23} /> : <Menu size={23} />}
+          {menuOpen ? <X size={21} /> : <Menu size={21} />}
+          <span>{menuOpen ? "Kapat" : "Menü"}</span>
         </button>
       </div>
       <nav className={`mobile-nav${menuOpen ? " mobile-nav-open" : ""}`} id="mobile-navigation" aria-label="Mobil menü" aria-hidden={!menuOpen}>
